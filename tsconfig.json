@@ -1,6 +1,26 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "baseUrl": "./",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@actions": ["./src/actions/index.ts"],
+      "@actions/*": ["./src/actions/*"],
+      "@components": ["./src/components/index.ts"],
+      "@components/*": ["./src/components/*"],
+      "@context": ["./src/context/index.ts"],
+      "@context/*": ["./src/context/*"],
+      "@hooks": ["./src/hooks/index.ts"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@screens": ["./src/screens/index.ts"],
+      "@screens/*": ["./src/screens/*"],
+      "@theme": ["./src/theme/index.ts"],
+      "@theme/*": ["./src/theme/*"],
+      "@utils": ["./src/utils/index.ts"],
+      "@utils/*": ["./src/utils/*"],
+    },
+    "resolveJsonModule": true,
   }
 }
