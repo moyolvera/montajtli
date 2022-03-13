@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "strict": true,
+    "experimentalDecorators": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
