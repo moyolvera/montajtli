@@ -10,11 +10,13 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-google-signin/google-signin": "^7.2.1",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.0",
     "expo": "~44.0.0",
     "expo-application": "^4.0.2",
     "expo-auth-session": "~3.5.0",
+    "expo-dev-client": "~0.8.4",
     "expo-firebase-analytics": "~6.0.0",
     "expo-random": "~12.1.1",
     "expo-splash-screen": "~0.14.1",

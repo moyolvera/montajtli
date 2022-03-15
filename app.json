@@ -13,9 +13,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "com.kenailabs.montajtli",
       "supportsTablet": true
@@ -41,6 +39,7 @@
         }
       }
     },
-    "description": ""
+    "description": "",
+    "plugins": ["@react-native-google-signin/google-signin"]
   }
 }
