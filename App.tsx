@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Config from 'react-native-config';
 import { FIREBASE_CONFIG } from '@utils';
 import { AuthProvider } from '@context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -10,7 +11,7 @@ import { commonStyles } from '@theme';
 // initializeApp(FIREBASE_CONFIG);
 
 GoogleSignin.configure({
-  webClientId: ''
+  webClientId: Config.WEB_CLIENT_ID
 });
 
 function App() {
