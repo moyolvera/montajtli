@@ -1,24 +1,17 @@
 import * as React from 'react';
 import { View, Text, Button } from 'react-native';
 import { commonStyles } from '@theme';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { useAuthContext } from '@hooks';
 
 interface LoginProps {}
 
 function LoginScreen({}: LoginProps) {
-  async function attemptGoogleSignIn() {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const { idToken } = await GoogleSignin.signIn();
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  const { signIn } = useAuthContext();
 
   return (
     <View style={commonStyles.flexOneJustifyCenter}>
       <Text>Login</Text>
-      <Button title="SignIn" onPress={attemptGoogleSignIn} />
+      <Button title="SignIn" onPress={signIn} />
     </View>
   );
 }

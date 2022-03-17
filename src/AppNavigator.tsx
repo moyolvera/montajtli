@@ -26,12 +26,11 @@ const Stack = createNativeStackNavigator();
 const SCREEN_OPTIONS = { headerShown: false };
 
 function AppNavigator() {
-  const { user, signIn } = useAuthContext();
+  const { user } = useAuthContext();
   const [isNavigatorReady, setIsNavigatorReady] = React.useState(false);
 
   const onNavigatorReady = React.useCallback(() => {
     setIsNavigatorReady(true);
-    signIn();
   }, []);
 
   React.useEffect(() => {
