@@ -1,12 +1,17 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
+import { commonStyles } from '@theme';
+import { useAuthContext } from '@hooks';
 
 interface LoginProps {}
 
 function LoginScreen({}: LoginProps) {
+  const { signIn } = useAuthContext();
+
   return (
-    <View>
-      <Text>More text</Text>
+    <View style={commonStyles.flexOneJustifyCenter}>
+      <Text>Login</Text>
+      <Button title="SignIn" onPress={signIn} />
     </View>
   );
 }

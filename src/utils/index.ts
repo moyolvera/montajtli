@@ -1,3 +1,3 @@
-import FIREBASE_CONFIG from './firebase';
+import DIMENSIONS from './dimensions';
 
-export { FIREBASE_CONFIG };
+export { DIMENSIONS };

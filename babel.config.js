@@ -1,7 +1,7 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['babel-preset-expo'],
+    presets: ['module:metro-react-native-babel-preset'],
     plugins: [
       [
         'module-resolver',
@@ -14,12 +14,12 @@ module.exports = function (api) {
             '@hooks': './src/hooks',
             '@screens': './src/screens',
             '@theme': './src/theme',
-            '@utils': './src/utils'
+            '@utils': './src/utils',
           },
-          extensions: ['.ts', '.tsx', 'web.ts', '.web.tsx']
-        }
+          extensions: ['.ts', '.tsx', 'web.ts', '.web.tsx'],
+        },
       ],
-      'react-native-reanimated/plugin'
-    ]
+      'react-native-reanimated/plugin',
+    ],
   };
 };

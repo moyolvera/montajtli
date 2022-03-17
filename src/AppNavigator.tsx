@@ -6,7 +6,6 @@ import {
 } from '@react-navigation/native-stack';
 import { useAuthContext } from '@hooks';
 import { HomeScreen, LoginScreen, RegisterScreen } from '@screens';
-import * as SplashScreen from 'expo-splash-screen';
 
 type AuthStackParamList = {
   Login: undefined;
@@ -27,17 +26,17 @@ const Stack = createNativeStackNavigator();
 const SCREEN_OPTIONS = { headerShown: false };
 
 function AppNavigator() {
-  const { user, signIn } = useAuthContext();
+  const { user } = useAuthContext();
   const [isNavigatorReady, setIsNavigatorReady] = React.useState(false);
 
   const onNavigatorReady = React.useCallback(() => {
     setIsNavigatorReady(true);
-    signIn();
   }, []);
 
   React.useEffect(() => {
     async function prepare() {
-      await SplashScreen.preventAutoHideAsync();
+      // TODO: Prevent splash screen from hiding
+      // await SplashScreen.preventAutoHideAsync();
     }
 
     prepare().catch(console.error);
@@ -45,7 +44,8 @@ function AppNavigator() {
 
   React.useEffect(() => {
     async function prepareComplete() {
-      await SplashScreen.hideAsync();
+      // TODO: Hide splash screen
+      // await SplashScreen.hideAsync();
     }
 
     if (isNavigatorReady && typeof user !== 'undefined') {
