@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import { commonStyles } from '@theme';
 import { useAuthContext } from '@hooks';
-import { Input } from '@components';
+import { Input, Text } from '@components';
 import Feather from 'react-native-vector-icons/Feather';
 import { InputHandlers } from '@components/Input/Input';
 import { validators } from '@utils';

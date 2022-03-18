@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import { commonStyles } from '@theme';
 import { useAuthContext } from '@hooks';
+import { Text } from '@components';
 
 interface LoginProps {}
 
