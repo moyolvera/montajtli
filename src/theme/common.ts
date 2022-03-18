@@ -7,6 +7,17 @@ const common = StyleSheet.create({
   flexOneJustifyCenter: {
     flex: 1,
     justifyContent: 'center'
+  },
+  flexOneCenter: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  fullWidth: {
+    width: '100%'
+  },
+  absolute: {
+    position: 'absolute'
   }
 });
 
