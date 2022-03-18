@@ -4,7 +4,6 @@ import * as React from 'react';
 import {
   TextInput,
   TextInputProps,
-  Text,
   View,
   StyleProp,
   ViewStyle
@@ -17,6 +16,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Feather from 'react-native-vector-icons/Feather';
 
+import Text from '../Text/Text';
 import styles from './Input.styles';
 
 export type InputValidationFunction = {
