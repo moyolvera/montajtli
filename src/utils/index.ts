@@ -1,3 +1,4 @@
 import DIMENSIONS from './dimensions';
+import { isAndroid, isIos, isWeb } from './platform';
 
-export { DIMENSIONS };
+export { DIMENSIONS, isAndroid, isIos, isWeb };
