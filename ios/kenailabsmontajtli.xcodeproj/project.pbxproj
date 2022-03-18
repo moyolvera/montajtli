@@ -42,6 +42,22 @@
 		6C97AB639B58BBB4B15BBE30 /* Pods-kenailabsmontajtli-kenailabsmontajtliTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenailabsmontajtli-kenailabsmontajtliTests.debug.xcconfig"; path = "Target Support Files/Pods-kenailabsmontajtli-kenailabsmontajtliTests/Pods-kenailabsmontajtli-kenailabsmontajtliTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kenailabsmontajtli/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-kenailabsmontajtli-kenailabsmontajtliTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kenailabsmontajtli-kenailabsmontajtliTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B91D771727E522FA00991B66 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		B91D771827E522FA00991B66 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		B91D771927E522FA00991B66 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		B91D771A27E522FA00991B66 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		B91D771B27E522FA00991B66 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		B91D771C27E522FA00991B66 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		B91D771D27E522FA00991B66 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		B91D771E27E522FA00991B66 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		B91D771F27E522FA00991B66 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		B91D772027E522FA00991B66 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		B91D772127E522FA00991B66 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		B91D772227E522FA00991B66 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		B91D772327E522FA00991B66 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		B91D772427E522FA00991B66 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		B91D772527E522FA00991B66 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		B91D772627E522FA00991B66 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		B985FDD527E17169007EB252 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "kenailabsmontajtli/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0A881CF5CF3F2B244570E2A /* Pods-kenailabsmontajtli.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenailabsmontajtli.debug.xcconfig"; path = "Target Support Files/Pods-kenailabsmontajtli/Pods-kenailabsmontajtli.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-kenailabsmontajtli.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kenailabsmontajtli.release.xcconfig"; path = "Target Support Files/Pods-kenailabsmontajtli/Pods-kenailabsmontajtli.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +104,7 @@
 		13B07FAE1A68108700A75B9A /* kenailabsmontajtli */ = {
 			isa = PBXGroup;
 			children = (
+				B91D771627E522FA00991B66 /* Fonts */,
 				B985FDD527E17169007EB252 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -138,6 +155,30 @@
 				00E356EE1AD99517003FC87E /* kenailabsmontajtliTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B91D771627E522FA00991B66 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B91D771727E522FA00991B66 /* Fontisto.ttf */,
+				B91D771827E522FA00991B66 /* Octicons.ttf */,
+				B91D771927E522FA00991B66 /* Feather.ttf */,
+				B91D771A27E522FA00991B66 /* Entypo.ttf */,
+				B91D771B27E522FA00991B66 /* FontAwesome5_Brands.ttf */,
+				B91D771C27E522FA00991B66 /* MaterialCommunityIcons.ttf */,
+				B91D771D27E522FA00991B66 /* AntDesign.ttf */,
+				B91D771E27E522FA00991B66 /* Foundation.ttf */,
+				B91D771F27E522FA00991B66 /* Ionicons.ttf */,
+				B91D772027E522FA00991B66 /* FontAwesome5_Solid.ttf */,
+				B91D772127E522FA00991B66 /* FontAwesome5_Regular.ttf */,
+				B91D772227E522FA00991B66 /* FontAwesome.ttf */,
+				B91D772327E522FA00991B66 /* Zocial.ttf */,
+				B91D772427E522FA00991B66 /* EvilIcons.ttf */,
+				B91D772527E522FA00991B66 /* SimpleLineIcons.ttf */,
+				B91D772627E522FA00991B66 /* MaterialIcons.ttf */,
+			);
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
@@ -503,6 +544,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = kenailabsmontajtli/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,6 +571,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = kenailabsmontajtli/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
