@@ -1,12 +1,13 @@
 import * as React from 'react';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { authentication } from '@actions';
+import { AuthResponse } from '@utils/types';
 
 type AuthContextType = {
   user: FirebaseAuthTypes.User | null | undefined;
-  signIn?: () => Promise<void>;
+  signIn?: (email?: string, password?: string) => Promise<AuthResponse>;
+  signUp?: (email: string, password: string) => Promise<AuthResponse>;
   signOut?: () => Promise<void>;
-  signUp?: (userData: FirebaseAuthTypes.UserCredential) => Promise<void>;
 };
 
 export const AuthContext = React.createContext<AuthContextType>({

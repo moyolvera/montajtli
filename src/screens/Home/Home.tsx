@@ -2,42 +2,31 @@ import * as React from 'react';
 import { View, Button } from 'react-native';
 import { commonStyles } from '@theme';
 import { useAuthContext } from '@hooks';
-import { Input, Text } from '@components';
-import Feather from 'react-native-vector-icons/Feather';
-import { InputHandlers } from '@components/Input/Input';
-import { validators } from '@utils';
+import { Text } from '@components';
 
 interface HomeProps {}
 
 function HomeScreen({}: HomeProps) {
-  const { signOut } = useAuthContext();
-  const inputRef = React.useRef<InputHandlers>(null);
+  const { user, signOut } = useAuthContext();
+  const [needsEmailVerify, setNeedsEmailVerify] = React.useState(false);
 
   async function attemptGoogleSignOut() {
     await signOut();
   }
 
-  function validateInput() {
-    if (!inputRef.current) {
+  React.useEffect(() => {
+    if (!user) {
       return;
     }
 
-    inputRef.current.validate();
-  }
+    if (!user.emailVerified) {
+      setNeedsEmailVerify(true);
+    }
+  }, [user]);
 
   return (
     <View style={commonStyles.flexOneJustifyCenter}>
-      <Text>Home</Text>
-      <Input
-        ref={inputRef}
-        customValidations={[validators.isValidEmail()]}
-        renderLeftIcon={<Feather name="maximize-2" size={16} color="#000" />}
-        label="Input"
-        autoCapitalize="none"
-      />
-      <Input label="Otro Input" />
-      <Feather name="maximize-2" size={28} color="#000" />
-      <Button title="Validate" onPress={validateInput} />
+      {needsEmailVerify && <Text>Needs verify Email</Text>}
       <Button title="SignOut" onPress={attemptGoogleSignOut} />
     </View>
   );
