@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { AuthContext } from '@context';
-import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
 import useLoaderContext from './useLoaderContext';
 
@@ -13,19 +12,25 @@ function useAuthContext() {
   } = React.useContext(AuthContext);
   const { setIsLoading } = useLoaderContext();
 
-  const signIn = React.useCallback(async () => {
-    if (requireSignIn) {
-      setIsLoading(true);
+  const signIn = React.useCallback(
+    async (email?: string, password?: string) => {
+      if (requireSignIn) {
+        setIsLoading(true);
 
-      try {
-        await requireSignIn();
-      } catch (error) {
-        console.log('Error: ', error);
-      } finally {
-        setIsLoading(false);
+        try {
+          const response = await requireSignIn(email, password);
+          if (response.error) {
+            console.log('error: ' + response.error);
+          }
+        } catch (error) {
+          console.log('Error: ', error);
+        } finally {
+          setIsLoading(false);
+        }
       }
-    }
-  }, [requireSignIn]);
+    },
+    [requireSignIn]
+  );
 
   const signOut = React.useCallback(async () => {
     if (requireSignOut) {
@@ -42,9 +47,9 @@ function useAuthContext() {
   }, [requireSignOut]);
 
   const signUp = React.useCallback(
-    async (user: FirebaseAuthTypes.UserCredential) => {
+    async (email: string, password: string) => {
       if (requireSignUp) {
-        await requireSignUp(user);
+        await requireSignUp(email, password);
       }
     },
     [requireSignUp]

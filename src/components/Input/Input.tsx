@@ -6,7 +6,9 @@ import {
   TextInputProps,
   View,
   StyleProp,
-  ViewStyle
+  ViewStyle,
+  NativeSyntheticEvent,
+  TextInputFocusEventData
 } from 'react-native';
 import Animated, {
   interpolate,
@@ -49,6 +51,7 @@ const Input: React.ForwardRefRenderFunction<InputHandlers, InputProps> = (
     isRequired,
     renderLeftIcon,
     wrapperStyle,
+    onBlur: onBlurProp,
     ...props
   },
   forwardedRef
@@ -80,8 +83,12 @@ const Input: React.ForwardRefRenderFunction<InputHandlers, InputProps> = (
     animation.value = withTiming(0);
   }
 
-  function onBlur() {
+  function onBlur(e: NativeSyntheticEvent<TextInputFocusEventData>) {
     setIsFocused(false);
+
+    if (onBlurProp) {
+      onBlurProp(e);
+    }
 
     if (value.length !== 0) {
       return;
