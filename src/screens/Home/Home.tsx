@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Button } from 'react-native';
 import { commonStyles } from '@theme';
 import { useAuthContext } from '@hooks';
-import { Text } from '@components';
+import { AddProject, Text } from '@components';
 
 interface HomeProps {}
 
@@ -19,7 +19,7 @@ function HomeScreen({}: HomeProps) {
       return;
     }
 
-    if (!user.emailVerified) {
+    if (!user.isVerified) {
       setNeedsEmailVerify(true);
     }
   }, [user]);
@@ -27,6 +27,7 @@ function HomeScreen({}: HomeProps) {
   return (
     <View style={commonStyles.flexOneJustifyCenter}>
       {needsEmailVerify && <Text>Needs verify Email</Text>}
+      <AddProject />
       <Button title="SignOut" onPress={attemptGoogleSignOut} />
     </View>
   );

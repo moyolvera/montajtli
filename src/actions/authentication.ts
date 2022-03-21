@@ -1,19 +1,9 @@
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import firestore from '@react-native-firebase/firestore';
 import { AuthResponse } from '@utils/types';
+import users from './users';
 
-async function saveNewUser(userData: FirebaseAuthTypes.UserCredential) {
-  await firestore()
-    .collection('users')
-    .add({
-      uid: userData.user.uid,
-      email: userData.user.email || '',
-      displayName: userData.user.displayName || '',
-      photoURL: userData.user.photoURL || '',
-      accounts: []
-    });
-}
+const { saveNewUser } = users;
 
 async function signUp(email: string, password: string) {
   return await new Promise<AuthResponse>(resolve => {
