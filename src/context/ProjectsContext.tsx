@@ -22,7 +22,6 @@ function ProjectsProvider({ children }: { children: React.ReactNode }) {
 
   async function updateProjects(parsedProjects: UserItemProject[]) {
     setIsLoading(true);
-    console.log('updateProjects - on');
 
     try {
       const data = await project.getAllProjectsInArray(parsedProjects);
@@ -31,7 +30,6 @@ function ProjectsProvider({ children }: { children: React.ReactNode }) {
       console.error(error);
     } finally {
       setIsLoading(false);
-      console.log('projects - off');
     }
   }
 
