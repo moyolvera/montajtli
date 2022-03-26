@@ -18,7 +18,7 @@ type AuthStackParamList = {
 };
 
 type AppStackParamList = {
-  Home: undefined;
+  Home?: { refresh?: boolean };
   RegisterProject: undefined;
 };
 

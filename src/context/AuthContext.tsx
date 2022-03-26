@@ -2,13 +2,13 @@ import * as React from 'react';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { authentication, users } from '@actions';
 import { AuthResponse, UserItemWithVerify } from '@utils/types';
-import useLoaderContext from '@hooks/useLoaderContext';
 
 type AuthContextType = {
   user: UserItemWithVerify | null | undefined;
   signIn?: (email?: string, password?: string) => Promise<AuthResponse>;
   signUp?: (email: string, password: string) => Promise<AuthResponse>;
   signOut?: () => Promise<void>;
+  updateUser?: (user: UserItemWithVerify) => void;
 };
 
 export const AuthContext = React.createContext<AuthContextType>({
@@ -17,14 +17,14 @@ export const AuthContext = React.createContext<AuthContextType>({
 
 function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = React.useState<UserItemWithVerify | null>();
-  const { setIsLoading } = useLoaderContext();
 
   const value = React.useMemo(
     () => ({
       user,
       signIn: authentication.signIn,
       signOut: authentication.signOut,
-      signUp: authentication.signUp
+      signUp: authentication.signUp,
+      updateUser: setUser
     }),
     [user]
   );
@@ -35,12 +35,9 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    setIsLoading(true);
-
     const userItem = await users.getUserByUid(user.uid);
 
     setUser({ ...userItem, isVerified: user.emailVerified });
-    setIsLoading(false);
   }
 
   React.useEffect(() => {

@@ -7,17 +7,22 @@ export type AuthResponse = {
 
 export type VoidFunction = () => void;
 
+type TimeType =
+  | FirebaseFirestoreTypes.Timestamp
+  | FirebaseFirestoreTypes.FieldValue;
+
 export type ProjectItem = {
   id: string;
   name: string;
   description: string;
-  createdAt: FirebaseFirestoreTypes.Timestamp;
-  updatedAt: FirebaseFirestoreTypes.Timestamp;
+  createdAt: TimeType;
+  updatedAt: TimeType;
+  permission?: ProjectPermissions;
 };
 
-type UserItemAccount = {
+export type UserItemProject = {
   id: string;
-  name: string;
+  permission: ProjectPermissions;
 };
 
 export type UserItem = {
@@ -25,9 +30,9 @@ export type UserItem = {
   email: string;
   displayName: string;
   photoURL: string;
-  createdAt: FirebaseFirestoreTypes.Timestamp;
-  updatedAt: FirebaseFirestoreTypes.Timestamp;
-  projects?: UserItemAccount[];
+  createdAt: TimeType;
+  updatedAt: TimeType;
+  projects?: UserItemProject[];
 };
 
 export type UserItemWithVerify = UserItem & { isVerified?: boolean };

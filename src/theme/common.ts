@@ -18,6 +18,9 @@ const common = StyleSheet.create({
   },
   absolute: {
     position: 'absolute'
+  },
+  backgroundWhite: {
+    backgroundColor: '#fff'
   }
 });
 

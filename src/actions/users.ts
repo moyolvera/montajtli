@@ -5,30 +5,35 @@ import { UserItem } from '@utils/types';
 async function saveNewUser(userData: FirebaseAuthTypes.UserCredential) {
   await firestore()
     .collection('users')
-    .add({
+    .doc(userData.user.uid)
+    .set({
       uid: userData.user.uid,
       email: userData.user.email || '',
       displayName: userData.user.displayName || '',
       photoURL: userData.user.photoURL || '',
       createdAt: firestore.FieldValue.serverTimestamp(),
-      accounts: []
+      updatedAt: firestore.FieldValue.serverTimestamp(),
+      projects: []
     });
 }
 
 async function getUserByUid(uid: string) {
-  const user = await firestore()
+  const user = await firestore().collection('users').doc(uid).get();
+
+  return user.data() as UserItem;
+}
+
+async function updateUser({ uid, ...props }: Partial<UserItem>) {
+  await firestore()
     .collection('users')
-    .where('uid', '==', uid)
-    .get();
-
-  const userArray: UserItem[] = [];
-
-  user.forEach(doc => userArray.push(doc.data() as UserItem));
-
-  return userArray[0];
+    .doc(uid)
+    .update({
+      ...props
+    });
 }
 
 export default {
   getUserByUid,
-  saveNewUser
+  saveNewUser,
+  updateUser
 };
