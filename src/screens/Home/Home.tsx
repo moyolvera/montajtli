@@ -1,18 +1,15 @@
 import * as React from 'react';
-import { View, Button } from 'react-native';
-import { commonStyles } from '@theme';
+import { Button } from 'react-native';
 import { useAuthContext } from '@hooks';
-import { AddProject, Text } from '@components';
+import { AddProject, HomeHeader, Text, Container } from '@components';
 import { RouteProp, useIsFocused, useRoute } from '@react-navigation/native';
 import { users } from '@actions';
-import { useProjectsContext } from '@hooks';
 import { RootStackParamList } from 'src/AppNavigator';
 
 interface HomeProps {}
 
 function HomeScreen({}: HomeProps) {
   const { user, signOut, updateUser } = useAuthContext();
-  const { projects } = useProjectsContext();
   const [needsEmailVerify, setNeedsEmailVerify] = React.useState(false);
   const isFocused = useIsFocused();
   const { params: { refresh } = {} } =
@@ -44,15 +41,12 @@ function HomeScreen({}: HomeProps) {
   }, [isFocused]);
 
   return (
-    <View style={commonStyles.flexOneJustifyCenter}>
+    <Container>
+      <HomeHeader />
       {needsEmailVerify && <Text>Needs verify Email</Text>}
-      {!!projects && projects.length > 0 && (
-        <Text>{JSON.stringify(projects)}</Text>
-      )}
-      <Text>home.welcome</Text>
       <AddProject />
       <Button title="SignOut" onPress={attemptGoogleSignOut} />
-    </View>
+    </Container>
   );
 }
 
