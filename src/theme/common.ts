@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const common = StyleSheet.create({
+  flexRow: {
+    flexDirection: 'row'
+  },
   flexOne: {
     flex: 1
   },
