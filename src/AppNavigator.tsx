@@ -4,6 +4,7 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationProp
 } from '@react-navigation/native-stack';
+import RNBootSplash from 'react-native-bootsplash';
 import { useAuthContext } from '@hooks';
 import {
   HomeScreen,
@@ -40,18 +41,8 @@ function AppNavigator() {
   }, []);
 
   React.useEffect(() => {
-    async function prepare() {
-      // TODO: Prevent splash screen from hiding
-      // await SplashScreen.preventAutoHideAsync();
-    }
-
-    prepare().catch(console.error);
-  }, []);
-
-  React.useEffect(() => {
     async function prepareComplete() {
-      // TODO: Hide splash screen
-      // await SplashScreen.hideAsync();
+      await RNBootSplash.hide({ fade: true });
     }
 
     if (isNavigatorReady && typeof user !== 'undefined') {
