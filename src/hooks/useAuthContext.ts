@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { AuthContext } from '@context';
-
-import useLoaderContext from './useLoaderContext';
+import { useLoaderContext } from '@hooks';
+import { UserItemWithVerify } from '@utils/types';
 
 function useAuthContext() {
   const {
     user,
     signIn: requireSignIn,
     signOut: requireSignOut,
-    signUp: requireSignUp
+    signUp: requireSignUp,
+    updateUser: requireUpdateUser
   } = React.useContext(AuthContext);
   const { setIsLoading } = useLoaderContext();
 
@@ -55,11 +56,21 @@ function useAuthContext() {
     [requireSignUp]
   );
 
+  const updateUser = React.useCallback(
+    (user: UserItemWithVerify) => {
+      if (requireUpdateUser) {
+        requireUpdateUser(user);
+      }
+    },
+    [requireUpdateUser]
+  );
+
   return {
     user,
     signIn,
     signOut,
-    signUp
+    signUp,
+    updateUser
   };
 }
 

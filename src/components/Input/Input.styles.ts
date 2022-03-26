@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     zIndex: 2
   },
   label: {
-    color: '#999'
+    color: '#bbb'
   },
   inputFocused: {
     borderColor: '#00bcd4'
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: '#fff',
     borderRadius: 3,
-    borderColor: '#ccc',
+    borderColor: '#eee',
     padding: isAndroid() ? 3 : 6,
     borderWidth: 1
   },

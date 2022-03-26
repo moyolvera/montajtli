@@ -5,7 +5,12 @@ import {
   NativeStackNavigationProp
 } from '@react-navigation/native-stack';
 import { useAuthContext } from '@hooks';
-import { HomeScreen, LoginScreen, RegisterScreen } from '@screens';
+import {
+  HomeScreen,
+  LoginScreen,
+  RegisterScreen,
+  RegisterProjectScreen
+} from '@screens';
 
 type AuthStackParamList = {
   Login: undefined;
@@ -13,7 +18,8 @@ type AuthStackParamList = {
 };
 
 type AppStackParamList = {
-  Home: undefined;
+  Home?: { refresh?: boolean };
+  RegisterProject: undefined;
 };
 
 export type RootStackParamList = AuthStackParamList & AppStackParamList;
@@ -62,7 +68,13 @@ function AppNavigator() {
             <Stack.Screen name="Register" component={RegisterScreen} />
           </>
         ) : (
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen
+              name="RegisterProject"
+              component={RegisterProjectScreen}
+            />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>
