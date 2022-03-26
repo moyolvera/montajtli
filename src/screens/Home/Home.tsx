@@ -49,6 +49,7 @@ function HomeScreen({}: HomeProps) {
       {!!projects && projects.length > 0 && (
         <Text>{JSON.stringify(projects)}</Text>
       )}
+      <Text>home.welcome</Text>
       <AddProject />
       <Button title="SignOut" onPress={attemptGoogleSignOut} />
     </View>
