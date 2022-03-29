@@ -4,6 +4,7 @@ import { getLocales } from 'react-native-localize';
 
 function loadI18n() {
   return i18n.use(initReactI18next).init({
+    compatibilityJSON: 'v3',
     lng: getLocales()[0].languageCode,
     fallbackLng: 'en',
     resources: {
