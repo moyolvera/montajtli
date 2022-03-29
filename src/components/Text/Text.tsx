@@ -7,15 +7,17 @@ interface ExtendedTextProps extends TextProps {
 }
 
 const styles = StyleSheet.create({
-  regular: {},
+  regular: {
+    fontFamily: 'Nexa-Regular'
+  },
   light: {
-    fontWeight: '300'
+    fontFamily: 'Nexa-Light'
   },
   black: {
-    fontWeight: '900'
+    fontFamily: 'Nexa-Black'
   },
   bold: {
-    fontWeight: 'bold'
+    fontFamily: 'Nexa-Bold'
   }
 });
 
