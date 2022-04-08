@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View } from 'react-native';
 import useAuthContext from '@hooks/useAuthContext';
 import { useNavigation } from '@react-navigation/native';
 import { ScreenNavigationProp } from 'src/AppNavigator';
+import { Text, Button } from '@components';
+import Feather from 'react-native-vector-icons/Feather';
+import colors from '@theme/colors';
+
+import styles from './AddProject.styles';
 
 interface AddProjectProps {}
 
@@ -11,20 +16,24 @@ function AddProject({}: AddProjectProps) {
   const { navigate } = useNavigation<ScreenNavigationProp>();
 
   function handleAddProject() {
-    navigate('RegisterProject');
+    navigate('Projects');
   }
 
   const userHasProjects = user && user.projects && user.projects.length > 0;
 
   return (
-    <View>
-      <Button title="Agregar producto" onPress={handleAddProject} />
-      {!userHasProjects && (
-        <Text>
-          Para comenzar necesitas registrar tu cuenta a un producto, puedes
-          creear uno o unirte a un proyecto ya creado
-        </Text>
-      )}
+    <View style={styles.wrapper}>
+      <Text font="bold" style={styles.title}>
+        project.title
+      </Text>
+      <Text font="light" style={styles.description}>
+        {!userHasProjects ? 'project.add.register' : 'project.add.manage'}
+      </Text>
+      <Button
+        onPress={handleAddProject}
+        title="common.go"
+        icon={<Feather name="chevron-right" color={colors.white} size={14} />}
+      />
     </View>
   );
 }

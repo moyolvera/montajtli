@@ -24,6 +24,21 @@ const common = StyleSheet.create({
   },
   backgroundWhite: {
     backgroundColor: '#fff'
+  },
+  rightLabel: {
+    paddingHorizontal: 16,
+    marginBottom: 8,
+    fontSize: 12,
+    textAlign: 'right'
+  },
+  marginTop8: {
+    marginTop: 8
+  },
+  padding: {
+    padding: 16
+  },
+  paddingHorizontal: {
+    paddingHorizontal: 16
   }
 });
 

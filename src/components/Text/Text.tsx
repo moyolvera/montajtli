@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Text as RNText, TextProps, StyleSheet } from 'react-native';
 import useLocalization from '@hooks/useLocalization';
+import colors from '@theme/colors';
 
 interface ExtendedTextProps extends TextProps {
   font?: 'regular' | 'light' | 'black' | 'bold';
@@ -8,16 +9,20 @@ interface ExtendedTextProps extends TextProps {
 
 const styles = StyleSheet.create({
   regular: {
-    fontFamily: 'Nexa-Regular'
+    fontFamily: 'Nexa-Regular',
+    color: colors.black
   },
   light: {
-    fontFamily: 'Nexa-Light'
+    fontFamily: 'Nexa-Light',
+    color: colors.black
   },
   black: {
-    fontFamily: 'Nexa-Black'
+    fontFamily: 'Nexa-Black',
+    color: colors.black
   },
   bold: {
-    fontFamily: 'Nexa-Bold'
+    fontFamily: 'Nexa-Bold',
+    color: colors.black
   }
 });
 
@@ -40,7 +45,7 @@ function Text({ font = 'regular', children, ...props }: ExtendedTextProps) {
   }, [font]);
 
   return (
-    <RNText {...props} style={[props.style, textStyles]}>
+    <RNText {...props} style={[textStyles, props.style]}>
       {localize(children)}
     </RNText>
   );

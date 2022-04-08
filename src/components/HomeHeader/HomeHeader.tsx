@@ -24,7 +24,9 @@ function HomeHeader({}: HomeHeaderProps) {
         <Text font="light" style={styles.welcome}>
           home.welcome
         </Text>
-        <Text font="bold">{user?.displayName}</Text>
+        <Text font="bold" style={styles.name}>
+          {user?.displayName}
+        </Text>
       </View>
       <View style={styles.notification}>
         <SimpleLineIcons

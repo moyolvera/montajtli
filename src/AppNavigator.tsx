@@ -6,12 +6,7 @@ import {
 } from '@react-navigation/native-stack';
 import RNBootSplash from 'react-native-bootsplash';
 import { useAuthContext } from '@hooks';
-import {
-  HomeScreen,
-  LoginScreen,
-  RegisterScreen,
-  RegisterProjectScreen
-} from '@screens';
+import { HomeScreen, LoginScreen, RegisterScreen, Projects } from '@screens';
 
 type AuthStackParamList = {
   Login: undefined;
@@ -20,7 +15,7 @@ type AuthStackParamList = {
 
 type AppStackParamList = {
   Home?: { refresh?: boolean };
-  RegisterProject: undefined;
+  Projects: undefined;
 };
 
 export type RootStackParamList = AuthStackParamList & AppStackParamList;
@@ -61,10 +56,7 @@ function AppNavigator() {
         ) : (
           <>
             <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen
-              name="RegisterProject"
-              component={RegisterProjectScreen}
-            />
+            <Stack.Screen name="Projects" component={Projects} />
           </>
         )}
       </Stack.Navigator>

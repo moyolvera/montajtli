@@ -45,7 +45,9 @@ const styles = StyleSheet.create({
   error: {
     fontSize: 12,
     paddingHorizontal: 4,
-    marginBottom: 2
+    marginTop: 8,
+    marginBottom: 2,
+    color: '#f00'
   }
 });
 

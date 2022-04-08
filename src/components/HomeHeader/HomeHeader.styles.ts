@@ -1,3 +1,4 @@
+import colors from '@theme/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -5,6 +6,7 @@ const styles = StyleSheet.create({
     padding: 18
   },
   welcome: {
+    color: colors.black,
     fontSize: 12,
     marginBottom: 2
   },
@@ -20,14 +22,18 @@ const styles = StyleSheet.create({
   notification: {
     width: 40,
     height: 40,
-    backgroundColor: '#fee6de',
+    backgroundColor: colors.action,
     borderRadius: 16,
     transform: [{ rotateZ: '6deg' }],
     justifyContent: 'center',
     alignItems: 'center'
   },
   bell: {
+    color: colors.white,
     transform: [{ rotateZ: '-6deg' }]
+  },
+  name: {
+    color: colors.black
   }
 });
 

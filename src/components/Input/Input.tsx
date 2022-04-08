@@ -41,7 +41,7 @@ export type InputHandlers = {
   setValue: (value: string) => void;
 };
 
-const LABEL_PLACE = isAndroid() ? 26 : 24;
+const LABEL_PLACE = isAndroid() ? 26 : 28;
 
 const Input: React.ForwardRefRenderFunction<InputHandlers, InputProps> = (
   {
@@ -52,6 +52,7 @@ const Input: React.ForwardRefRenderFunction<InputHandlers, InputProps> = (
     renderLeftIcon,
     wrapperStyle,
     onBlur: onBlurProp,
+    style,
     ...props
   },
   forwardedRef
@@ -156,7 +157,8 @@ const Input: React.ForwardRefRenderFunction<InputHandlers, InputProps> = (
             styles.input,
             isFocused && styles.inputFocused,
             !!renderLeftIcon && styles.withLeftIcon,
-            !!error && styles.errorInput
+            !!error && styles.errorInput,
+            style
           ]}
           {...props}
         />
@@ -170,7 +172,7 @@ const Input: React.ForwardRefRenderFunction<InputHandlers, InputProps> = (
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               style={styles.errorIcon}>
-              <Feather name="alert-triangle" size={16} color="#000" />
+              <Feather name="alert-triangle" size={16} color="#f00" />
             </MotiView>
           ) : null}
         </AnimatePresence>

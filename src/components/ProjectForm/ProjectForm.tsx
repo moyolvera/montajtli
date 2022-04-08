@@ -1,14 +1,17 @@
 import * as React from 'react';
-import { Button, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { commonStyles } from '@theme';
-import { Input, Text } from '@components';
+import { Input, Text, Button, SimpleHeader } from '@components';
 import firestore from '@react-native-firebase/firestore';
 import { InputHandlers } from '@components/Input/Input';
 import { project, users } from '@actions';
 import { useAuthContext } from '@hooks';
 import { validators } from '@utils';
 import { ProjectPermissions } from '@actions/project';
+import colors from '@theme/colors';
+
+import styles from './ProjectForm.styles';
 
 const { minLenghtFormat, isRequired } = validators;
 
@@ -58,35 +61,43 @@ function ProjectForm({ onClose, onSuccess }: ProjectFormProps) {
   }
 
   return (
-    <View style={commonStyles.backgroundWhite}>
-      <Text>Crea un nuevo proyecto</Text>
-      <Text>
-        Aqui podras registrar los datos de tu marca, proyecto o servicio
+    <View style={[commonStyles.flexOne]}>
+      <SimpleHeader
+        left={
+          <TouchableOpacity onPress={onClose}>
+            <Feather name="chevron-left" color={colors.black} size={32} />
+          </TouchableOpacity>
+        }>
+        project.add.create_title
+      </SimpleHeader>
+      <Text font="light" style={commonStyles.rightLabel}>
+        project.add.create_description
       </Text>
-      <Text>
-        Si tienes una tienda, ofreces un servicio o eres prestamista ingresa tus
-        datos aqui
-      </Text>
-      <Input
-        ref={nameRef}
-        renderLeftIcon={<Feather name="edit" color="#a4abac" size={16} />}
-        customValidations={[isRequired(), minLenghtFormat(5)]}
-        label="Nombre del proyecto"
-        blurOnSubmit
-        returnKeyType="next"
-      />
-      <Input
-        ref={descriptionRef}
-        renderLeftIcon={<Feather name="book" color="#a4abac" size={16} />}
-        customValidations={[isRequired(), minLenghtFormat(12)]}
-        label="Descripcion del proyecto"
-        blurOnSubmit
-        multiline
-        numberOfLines={2}
-        returnKeyType="done"
-      />
-      <Button title="Cancelar" onPress={onClose} />
-      <Button title="Guardar" onPress={onSubmit} />
+      <View style={commonStyles.paddingHorizontal}>
+        <Input
+          ref={nameRef}
+          renderLeftIcon={<Feather name="edit" color="#a4abac" size={16} />}
+          customValidations={[isRequired(), minLenghtFormat(5)]}
+          label="Nombre del proyecto"
+          blurOnSubmit
+          returnKeyType="next"
+        />
+        <Input
+          ref={descriptionRef}
+          renderLeftIcon={<Feather name="book" color="#a4abac" size={16} />}
+          customValidations={[isRequired(), minLenghtFormat(12)]}
+          label="Descripcion del proyecto"
+          blurOnSubmit
+          multiline
+          numberOfLines={4}
+          style={styles.descriptionInput}
+          returnKeyType="done"
+        />
+      </View>
+      <View style={commonStyles.paddingHorizontal}>
+        <Button title="common.save" onPress={onSubmit} />
+        <Button link title="common.cancel" onPress={onClose} />
+      </View>
     </View>
   );
 }

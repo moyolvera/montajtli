@@ -1,5 +1,24 @@
 {
+  "common": {
+    "go": "go",
+    "save": "save",
+    "cancel": "cancel",
+    "transactions": "transactions"
+  },
   "home": {
-    "welcome": "Welcome ✨"
+    "welcome": "welcome ✨"
+  },
+  "project": {
+    "title": "products",
+    "add": {
+      "register": "link a product to your account to start tracking it",
+      "manage": "manage all the products linked to your account",
+      "create": "create",
+      "join": "  join  ",
+      "create_title": "create a product",
+      "join_title": "join a product",
+      "create_description": "Aqui podras registrar los datos de tu marca, proyecto o servicio, Si tienes una tienda, ofreces un servicio o eres prestamista ingresa tus datos aqui"
+    },
+    "label": "registered products"
   }
 }

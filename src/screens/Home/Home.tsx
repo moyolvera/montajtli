@@ -1,7 +1,13 @@
 import * as React from 'react';
 import { Button } from 'react-native';
 import { useAuthContext } from '@hooks';
-import { AddProject, HomeHeader, Text, Container } from '@components';
+import {
+  AddProject,
+  HomeHeader,
+  Text,
+  Container,
+  SimpleHeader
+} from '@components';
 import { RouteProp, useIsFocused, useRoute } from '@react-navigation/native';
 import { users } from '@actions';
 import { RootStackParamList } from 'src/AppNavigator';
@@ -45,6 +51,7 @@ function HomeScreen({}: HomeProps) {
       <HomeHeader />
       {needsEmailVerify && <Text>Needs verify Email</Text>}
       <AddProject />
+      <SimpleHeader>common.transactions</SimpleHeader>
       <Button title="SignOut" onPress={attemptGoogleSignOut} />
     </Container>
   );
